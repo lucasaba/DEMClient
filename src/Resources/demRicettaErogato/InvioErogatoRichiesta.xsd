@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://invioerogatorichiesta.xsd.dem.sanita.finanze.it" xmlns:td="http://tipodati.xsd.dem.sanita.finanze.it" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://invioerogatorichiesta.xsd.dem.sanita.finanze.it" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://tipodati.xsd.dem.sanita.finanze.it" schemaLocation="TipiDatiInvioErogato.xsd"/>
+	<xs:annotation>
+		<xs:documentation>Versione 1.2</xs:documentation>
+	</xs:annotation>
+	<xs:element name="InvioErogatoRichiesta">
+		<xs:annotation>
+			<xs:documentation>Elemento base per la richiesta di invio della ricetta da parte dell'erogatore</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="pinCode" type="td:stringType">
+					<xs:annotation>
+						<xs:documentation>PinCode inviante</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="codiceRegioneErogatore" type="td:stringType">
+					<xs:annotation>
+						<xs:documentation>Codice regione della struttura erogatrice</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="codiceAslErogatore" type="td:stringType">
+					<xs:annotation>
+						<xs:documentation>Codice ASL della struttura erogatrice</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="codiceSsaErogatore" type="td:stringType">
+					<xs:annotation>
+						<xs:documentation>Codice SSA della struttura erogatrice</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="pwd" type="td:pwdType">
+					<xs:annotation>
+						<xs:documentation>identificativo dell'utente che ha effettuato l'operazione</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="nre" type="td:nreType">
+					<xs:annotation>
+						<xs:documentation>Numero Ricetta Elettronica</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="cfAssistito" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Codice fiscale dell’assistito prelevato dalla Tessera Sanitaria</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="tipoOperazione" type="td:tipoOperazioneType">
+					<xs:annotation>
+						<xs:documentation>1 - Erogazione totale, 2 - Erogazione parziale, 3 - Erogazione parziale con chiusura forzata, 4 - Erogazione differita totale, 5 - Erogazione differita con chiusura forzata</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="prescrizioneFruita" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Dichiarazione di effettiva fruizione della prestazione specialistica</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="tipoErogazioneSpec" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Tipo erogazione della prestazione specialistica</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ticket" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Ammontare della quota di compartecipazione alla spesa sanitaria per farmaceutica</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="quotaFissa" type="td:stringType">
+					<xs:annotation>
+						<xs:documentation>Quota fissa del ticket per prestazione specialistica </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="franchigia" type="td:stringType">
+					<xs:annotation>
+						<xs:documentation>Franchigia del ticket per prestazione specialistica </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="galDirChiamAltro" type="td:stringType">
+					<xs:annotation>
+						<xs:documentation>Ammontare del prezzo del galenico, del diritto di chiamata spettante alla farmacia in servizio notturno </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="reddito" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Campo che indica se l’assistito e' esente per reddito oppure no: null - non esente, 1 - esente</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="dataSpedizione" type="td:dataOraType">
+					<xs:annotation>
+						<xs:documentation>Data di spedizione(erogazione) della ricetta</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="dispRic1" type="td:string256Type" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Campo per futuro utilizzo</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="dispRic2" type="td:string256Type" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Campo per futuro utilizzo</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="dispRic3" type="td:string256Type" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Campo per futuro utilizzo</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ElencoDettagliPrescrInviiErogato" type="td:elencoDettagliPrescrInviiErogatoType">
+					<xs:annotation>
+						<xs:documentation>Elenco singole prescrizioni invio erogato</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

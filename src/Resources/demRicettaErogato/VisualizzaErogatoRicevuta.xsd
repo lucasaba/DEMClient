@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://visualizzaerogatoricevuta.xsd.dem.sanita.finanze.it" xmlns:td="http://tipodati.xsd.dem.sanita.finanze.it" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://visualizzaerogatoricevuta.xsd.dem.sanita.finanze.it" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://tipodati.xsd.dem.sanita.finanze.it" schemaLocation="TipiDatiVisualizzaErogato.xsd"/>
+	<xs:annotation>
+		<xs:documentation>Versione 1.2</xs:documentation>
+	</xs:annotation>
+	<xs:element name="VisualizzaErogatoRicevuta">
+		<xs:annotation>
+			<xs:documentation>Elemento base della ricevuta per la richiesta di visualizzazione della ricetta prescritta dal medico da parte dell'erogatore</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="nre" type="td:nreType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Numero Ricetta Elettronica</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="cfMedico1" type="td:cfMedicoType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Codice fiscale del medico associato all'NRE inviato o attribuito in fase di registrazione</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="cfMedico2" type="td:cfMedicoType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Codice fiscale del medico che compila la ricetta elettronica</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="codRegione" type="td:codRegioneType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Codice Regione / Provincia Autonoma del medico a cui si vuole attribuire un NRE</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="codASLAo" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Codice ASL del medico a cui si vuole attribuire un NRE</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="codStruttura" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Codice struttura del medico a cui si vuole attribuire un NRE</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="codSpecializzazione" type="td:codSpecializzazioneType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Specializzazione del medico a cui si vuole attribuire un NRE</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="testata1" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Campo destinato a informazioni aggiuntive</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="testata2" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Campo destinato a informazioni aggiuntive</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="tipoRic" type="td:tipoRicettaType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Tipologia della ricetta compilata</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="codiceAss" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Codice Fiscale/STP/ENI/altro che rappresenta l'assistito per cui viene compilata la ricetta</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="cognNome" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Cognome e nome dell'assistito </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="indirizzo" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Indirizzo dell'assistito</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="oscuramDati" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Dati sensibili oscurati</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="numTessSasn" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Numero tessera assistenza SASN</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="socNavigaz" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Societa' di navigazione</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="tipoPrescrizione" type="td:tipoPrescType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>F - Farmaceutica, P - Specialistica</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ricettaInterna" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>La ricetta per prestazioni specialistiche prescritta internamente ad una struttura pubblica deve essere erogata all’interno della stessa struttura</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="codEsenzione" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Codice esenzione riportato in ricetta</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="nonEsente" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Campo che indica se l'assistito e' esente oppure no</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="reddito" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Campo che indica se l'assistito e' esente per reddito oppure no</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="codDiagnosi" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Codice diagnosi o del sospetto diagnostico</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="descrizioneDiagnosi" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Descrizione della diagnosi o del sospetto diagnostico in testo libero</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="dataCompilazione" type="td:dataOraType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Data compilazione della ricetta, formato aaaa-mm-gg HH:mm:ss</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="tipoVisita" type="td:tipoVisitaType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>A - Ambulatoriale, D - Domiciliare</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="dispReg" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Disposizioni regionali specifiche</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="provAssistito" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Provincia di residenza dell'assistito</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="aslAssistito" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Asl di residenza dell'assistito</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="indicazionePrescr" type="td:indicPrescType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>S - Suggerita, H - Ricovero</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="altro" type="td:indicPrescType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Indicazione di trattamento di una patologia cronica o non cronica per farmaceutica, altro per specialistica</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="classePriorita" type="td:prioritaType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Classe di priorita' della prescrizione</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="statoEstero" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Stato del soggetto assicurato da istituzioni estere</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="istituzCompetente" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Istituzione competente del soggetto assicurato da istituzioni estere</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="numIdentPers" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Numero di identificazione personale del soggetto assicurato da istituzioni estere</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="numIdentTess" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Numero di identificazione della tessera del soggetto assicurato da istituzioni estere</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="dataNascitaEstero" type="td:dataOraType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Data di nascita del soggetto assicurato da istituzioni estere nel formato aaaa-mm-gg</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="dataScadTessera" type="td:dataOraType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Data scadenza della tessera del soggetto assicurato da istituzioni estere nel formato aaaa-mm-gg</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="statoProcesso" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Stato della ricetta</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="chiusuraDiff" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Chiusura erogazione a posteriori</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="chiusuraForzata" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Dichiarazione di erogazione completa di una ricetta elettronica, nonostante erogazione parziale di quanto in essa contenuto, su esplicita richiesta dell’assistito</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="prescrizioneFruita" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Dichiarazione di effettiva fruizione della prestazione specialistica</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="tipoErogazioneSpec" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Tipo erogazione della prestazione specialistica</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ticket" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Ammontare della quota di compartecipazione alla spesa sanitaria per farmaceutica</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="quotaFissa" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Quota fissa del ticket per prestazione specialistica </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="franchigia" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Franchigia del ticket per prestazione specialistica </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="galDirChiamAltro" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Ammontare del prezzo del galenico, del diritto di chiamata spettante alla farmacia in servizio notturno </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="dataSpedizione" type="td:dataOraType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Data di spedizione(erogazione) della ricetta</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="dispRic1" type="td:string256Type" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Campo per futuro utilizzo</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="dispRic2" type="td:string256Type" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Campo per futuro utilizzo</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="dispRic3" type="td:string256Type" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Campo per futuro utilizzo</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ElencoDettagliPrescrVisualErogato" type="td:elencoDettagliPrescrVisualErogatoType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Elenco singole prescrizioni visualizzazione erogato</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="codAutenticazioneMedico" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Codice di autenticazione che certifica il corretto inserimento da parte del medico della ricetta sul SAC</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="codAutenticazioneErogatore" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Codice di autenticazione per l’erogatore che certifica l’avvenuta transazione</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="codEsitoVisualizzazione" type="td:codEsitoType">
+					<xs:annotation>
+						<xs:documentation>Codice dell'esito della visualizzazione</xs:documentation>
+					</xs:annotation>
+				</xs:element>		
+				<xs:element name="ElencoErroriRicette" type="td:elencoErroriRicetteType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Ripetizione di ErroreRicetta</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ElencoComunicazioni" type="td:elencoComunicazioniType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Ripetizione di Comunicazioni</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="codEseNaz" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Codice esenzione nazionale</xs:documentation>
+					</xs:annotation>
+				</xs:element>	
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

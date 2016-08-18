@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://sospendierogatoricevuta.xsd.dem.sanita.finanze.it" xmlns:td="http://tipodati.xsd.dem.sanita.finanze.it" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://sospendierogatoricevuta.xsd.dem.sanita.finanze.it" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://tipodati.xsd.dem.sanita.finanze.it" schemaLocation="TipiDatiSospendiErogato.xsd"/>
+	<xs:annotation>
+		<xs:documentation>Versione 1.2</xs:documentation>
+	</xs:annotation>
+	<xs:element name="SospendiErogatoRicevuta">
+		<xs:annotation>
+			<xs:documentation>Elemento base della ricevuta per la richiesta di sospensione di una ricetta da parte dell'erogatore</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="codEsitoSospensione" type="td:codEsitoType">
+					<xs:annotation>
+						<xs:documentation>Codice dell'esito della sospensione</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ElencoErroriRicette" type="td:elencoErroriRicetteType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Ripetizione di ErroreRicetta</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ElencoComunicazioni" type="td:elencoComunicazioniType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Ripetizione di Comunicazioni</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

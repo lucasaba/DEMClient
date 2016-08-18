@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:ricevutans="http://visualizzaerogatoricevuta.xsd.dem.sanita.finanze.it" xmlns:richiestans="http://visualizzaerogatorichiesta.xsd.dem.sanita.finanze.it" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://visualizzaerogato.wsdl.dem.sanita.finanze.it" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://visualizzaerogato.wsdl.dem.sanita.finanze.it">
+	<wsdl:types>
+		<xsd:schema elementFormDefault="qualified">
+			<xsd:import namespace="http://visualizzaerogatorichiesta.xsd.dem.sanita.finanze.it" schemaLocation="VisualizzaErogatoRichiesta.xsd"/>
+		</xsd:schema>
+		<xsd:schema elementFormDefault="qualified">
+			<xsd:import namespace="http://visualizzaerogatoricevuta.xsd.dem.sanita.finanze.it" schemaLocation="VisualizzaErogatoRicevuta.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="ricevuta">
+		<wsdl:part name="VisualizzaErogatoRicevuta" element="ricevutans:VisualizzaErogatoRicevuta"/>
+	</wsdl:message>
+	<wsdl:message name="richiesta">
+		<wsdl:part name="VisualizzaErogatoRichiesta" element="richiestans:VisualizzaErogatoRichiesta"/>
+	</wsdl:message>
+	<wsdl:portType name="visualizzaErogatoPT">
+		<wsdl:operation name="visualizzaErogato">
+			<wsdl:input message="tns:richiesta"/>
+			<wsdl:output message="tns:ricevuta"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="visualizzaErogatoBinding" type="tns:visualizzaErogatoPT">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="visualizzaErogato">
+			<soap:operation soapAction="http://visualizzaerogato.wsdl.dem.sanita.finanze.it/VisualizzaErogato"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="demVisualizzaErogato">
+		<wsdl:port name="demVisualizzaErogato" binding="tns:visualizzaErogatoBinding">
+			<soap:address location="http://localhost:9080/DemRicettaErogatoServicesWeb/services/demVisualizzaErogato"/>
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:documentation>Versione 1.2</wsdl:documentation>
+</wsdl:definitions>

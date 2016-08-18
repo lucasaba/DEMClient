@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://visualizzaerogatorichiesta.xsd.dem.sanita.finanze.it" xmlns:td="http://tipodati.xsd.dem.sanita.finanze.it" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://visualizzaerogatorichiesta.xsd.dem.sanita.finanze.it" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://tipodati.xsd.dem.sanita.finanze.it" schemaLocation="TipiDatiVisualizzaErogato.xsd"/>
+	<xs:annotation>
+		<xs:documentation>Versione 1.2</xs:documentation>
+	</xs:annotation>
+	<xs:element name="VisualizzaErogatoRichiesta">
+		<xs:annotation>
+			<xs:documentation>Elemento base per la richiesta di visualizzazione della ricetta prescritta dal medico da parte dell'erogatore</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="pinCode" type="td:stringType">
+					<xs:annotation>
+						<xs:documentation>PinCode inviante</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="codiceRegioneErogatore" type="td:stringType">
+					<xs:annotation>
+						<xs:documentation>Codice regione della struttura erogatrice</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="codiceAslErogatore" type="td:stringType">
+					<xs:annotation>
+						<xs:documentation>Codice ASL della struttura erogatrice</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="codiceSsaErogatore" type="td:stringType">
+					<xs:annotation>
+						<xs:documentation>Codice SSA della struttura erogatrice</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="pwd" type="td:pwdType">
+					<xs:annotation>
+						<xs:documentation>identificativo dell'utente che ha effettuato l'operazione</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="nre" type="td:nreType">
+					<xs:annotation>
+						<xs:documentation>Numero Ricetta Elettronica</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="cfAssistito" type="td:stringType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Codice fiscale dell’assistito prelevato dalla Tessera Sanitaria</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="tipoOperazione" type="td:tipoOperazioneType">
+					<xs:annotation>
+						<xs:documentation>1 - Blocco esclusivo con restituzione dati ricetta, 2 - Blocco esclusivo senza restituzione dati, 3 - Rilascio ricetta, 4 - Visualizza dati oscurati</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

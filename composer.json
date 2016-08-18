@@ -1,0 +1,21 @@
+{
+    "name": "lucasaba/sistemats-erogatore",
+    "description": "Gestione delle chiamate SOAP ai WebServices del SistemaTS",
+    "autoload": {
+        "psr-0": { 
+            "": "src/"
+        }
+    },
+    "type": "library",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Luca Saba",
+            "email": "lucasaba@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "phpunit/phpunit": "^5.5"
+    }
+}
